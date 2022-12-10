@@ -1,0 +1,9 @@
+pandas
+streamlit
+plotly
+sklearn
+sentence-transformers
+spacy
+torch
+google
+pickle-mixin
