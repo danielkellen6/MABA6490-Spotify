@@ -41,11 +41,11 @@ with user_input:
 
     col1, col2 = st.columns(2)
 
-    popularity = col1.slider("How hipster are you?", min_value = 0, max_value = 100, value = 50, step = 5)
+    popularity = col1.slider("Mainstream (100) or Hipster (0)?", min_value = 0, max_value = 100, value = 50, step = 5)
     danceability = col1.slider("How bad do you want to dance?", min_value = 0.0, max_value = 1.0, value = 0.5, step = 0.1)
     energy = col1.slider("Going out or staying in?", min_value = 0.0, max_value = 1.0, value = 0.5, step = 0.1)
     valence = col1.slider("Good vibes or bad", min_value = 0.0, max_value = 1.0, value = 0.5, step = 0.1)
-    tempo = col1.slider("Moving slow, or going quick?", min_value = 0, max_value = 100, value = 50, step = 50)
+    tempo = col1.slider("Moving slow, or going quick?", min_value = 0, max_value = 100, value = 50, step = 10)
 
     song_input = [popularity, danceability, energy, valence, tempo]
 
