@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 import warnings
 import pickle
+from googlesearch import search
 
 header = st.container()
 user_input = st.container()
@@ -56,8 +57,8 @@ with user_input:
     playlist = pd.DataFrame(data[["name", "album"]].iloc[[one, two, thr]])
     col2.write(playlist)
 
-    from googlesearch import search
-    for url in search(playlist['name'][0], stop=1):
+    search_term = playlist['name'].values[0] +" "+ playlist["album"].values[0]
+    for url in search(search_term, stop=1):
         url_link = url
     st.video(url_link)
 
