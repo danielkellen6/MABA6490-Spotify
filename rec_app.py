@@ -57,7 +57,7 @@ with user_input:
     playlist = pd.DataFrame(data[["name", "album"]].iloc[[one, two, thr]])
     col2.write(playlist)
 
-    search_term = playlist['name'].values[0] +" "+ playlist["album"].values[0]
+    search_term = playlist['name'].values[0] +" "+ playlist["album"].values[0] + " Taylor Swift"
     for url in search(search_term, stop=1):
         url_link = url
     st.video(url_link)
