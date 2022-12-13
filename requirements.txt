@@ -7,3 +7,4 @@ spacy
 torch
 google
 pickle-mixin
+streamlit-AgGrid
