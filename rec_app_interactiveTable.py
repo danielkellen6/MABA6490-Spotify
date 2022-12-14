@@ -54,7 +54,7 @@ with header:
         st.header("Features")
         st.subheader("Description of features from Spotify documentation")
         st.markdown("**Popularity** - The popularity of the artist. The artist's popularity is calculated from the popularity of all the artist's tracks.")
-        st.markdown("**Danceability** - Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.")
+        st.markdown("**Danceability** - Danceability describes how suitable a track is for dancing based on a combination of musical elements.")
         st.markdown("**Energy** - Energy represents a perceptual measure of intensity and activity.")
         st.markdown("**Tempo** - The speed or pace of a given piece and derives directly from the average beat duration.")
         st.markdown("**Valence** - A measure describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive.")
