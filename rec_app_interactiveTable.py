@@ -47,7 +47,8 @@ with header:
                 My idea was to create an app that would create a playlist of songs that are closely aligned with the users current mood, to help them \
                 discover new music, or current music that hits the spot. Further developments would center around linking the app with the Spotify API to dynamically keep \
                 up with the top music (S/O TSwift) and connect to the users account where the app would write the playist into the users account and would be rewritten each time.\
-                There are more features available for each track, the ones with the highest positive correlation to popularity were chosen")
+                There are more features available for each track, the ones with the highest positive correlation to popularity were chosen. \
+                The app gives a nearest neighbors playlist, then also shows the library ecosystem clustered and provides a list of songs also contained in the cluster.")
     st.header("Features")
     st.subheader("Description of features from Spotify documentation")
     st.markdown("**Popularity** - The popularity of the artist. The artist's popularity is calculated from the popularity of all the artist's tracks.")
@@ -163,7 +164,7 @@ with cluster:
     col1.write("You may also like songs from cluster {}".format(user_cluster[0]))
     col1.plotly_chart(cluster_image)
     user_cluster_df = data[data['cluster'] == user_cluster[0]]
-    col2.table(user_cluster_df[['song name', 'artist']][:15])
+    col2.table(user_cluster_df[['song name', 'artist']][:playlist_length])
 
 
 
