@@ -79,7 +79,7 @@ with user_input:
         energy_dict = dict(zip(nrg1,score))
 
         st.header("Use the following sliders to build your playlist!")
-        list_length = st.slider("How Many Songs do you want in your Playlist?", min_value = 2, max_value = 25, value = 0, step = 1)
+        list_length = st.slider("How Many Songs do you want in your Playlist?", min_value = 2, max_value = 25, value = 1, step = 1)
         pop = st.select_slider("Hipster or Mainstream?",options = pop1,value = pop1[2])
         dance = st.select_slider('How bad do you want to dance?', options = dance1, value = dance1[2])
         nrg = st.select_slider("Energy", options = nrg1, value = nrg1[2])
