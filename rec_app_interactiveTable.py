@@ -55,9 +55,9 @@ with header:
         st.subheader("Description of features from Spotify documentation")
         st.markdown("**Popularity** - The popularity of the artist. The artist's popularity is calculated from the popularity of all the artist's tracks.")
         st.markdown("**Danceability** - Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.")
-        st.markdown("**Energy** - Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.")
-        st.markdown("**Tempo** - The overall estimated tempo of a track. In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration.")
-        st.markdown("**Valence** - A measure describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).)")
+        st.markdown("**Energy** - Energy represents a perceptual measure of intensity and activity.")
+        st.markdown("**Tempo** - The speed or pace of a given piece and derives directly from the average beat duration.")
+        st.markdown("**Valence** - A measure describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive.")
     with col2:
         st.image("painting_of_sloth_using_spotify.png", caption = "Painting of Sloth Using Spotify - Created by Dall-E")
 
