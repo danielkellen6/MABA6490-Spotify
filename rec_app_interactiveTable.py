@@ -41,26 +41,29 @@ with open("full_data_cluster.pkl", "rb") as file3:
 
 
 with header:
-    st.header("Playlist Builder")
-    st.markdown("This app has a 1500 song library that will create a playlist based on your current mood.\
-                The data was extracted from Spotify (via kaggle) and have audio features that characterize each song based on several parameters. \
-                My idea was to create an app that would create a playlist of songs that are closely aligned with the users current mood, to help them \
-                discover new music, or current music that hits the spot. Further developments would center around linking the app with the Spotify API to dynamically keep \
-                up with the top music (S/O TSwift) and connect to the users account where the app would write the playist into the users account and would be rewritten each time.\
-                There are more features available for each track, the ones with the highest positive correlation to popularity were chosen. \
-                The app gives a nearest neighbors playlist, then also shows the library ecosystem clustered and provides a list of songs also contained in the cluster.")
-    st.header("Features")
-    st.subheader("Description of features from Spotify documentation")
-    st.markdown("**Popularity** - The popularity of the artist. The artist's popularity is calculated from the popularity of all the artist's tracks.")
-    st.markdown("**Danceability** - Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.")
-    st.markdown("**Energy** - Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.")
-    st.markdown("**Tempo** - The overall estimated tempo of a track. In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration.")
-    st.markdown("**Valence** - A measure describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).)")
-
-
-with user_input:
     col1, col2 = st.columns(2)
     with col1:
+        st.header("Playlist Builder")
+        st.markdown("This app has a 1500 song library that will create a playlist based on your current mood.\
+                    The data was extracted from Spotify (via kaggle) and have audio features that characterize each song based on several parameters. \
+                    My idea was to create an app that would create a playlist of songs that are closely aligned with the users current mood, to help them \
+                    discover new music, or current music that hits the spot. Further developments would center around linking the app with the Spotify API to dynamically keep \
+                    up with the top music (S/O TSwift) and connect to the users account where the app would write the playist into the users account and would be rewritten each time.\
+                    There are more features available for each track, the ones with the highest positive correlation to popularity were chosen. \
+                    The app gives a nearest neighbors playlist, then also shows the library ecosystem clustered and provides a list of songs also contained in the cluster.")
+        st.header("Features")
+        st.subheader("Description of features from Spotify documentation")
+        st.markdown("**Popularity** - The popularity of the artist. The artist's popularity is calculated from the popularity of all the artist's tracks.")
+        st.markdown("**Danceability** - Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.")
+        st.markdown("**Energy** - Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.")
+        st.markdown("**Tempo** - The overall estimated tempo of a track. In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration.")
+        st.markdown("**Valence** - A measure describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).)")
+    with col2:
+        st.image("painting_of_sloth_using_spotify.png", caption = "Painting of Sloth Using Spotify - Created by Dall-E")
+
+with user_input:
+    col3, col4 = st.columns(2)
+    with col3:
         dance1 = ['I hate dancing', 'Not Now', 'Maybe a little', 'Trying to catch a vibe', "Where's the Tequila"]
         pop1 = ["You probably haven't heard of them", "I saw them at 1st Ave before the were big", "I like experimenting", "Where's JBiebs", "FM Radio" ]
         temp1 = ['slowest', 'slower', 'even keel', 'fast', 'fastest']
@@ -114,7 +117,7 @@ with user_input:
 
         # playlist = pd.DataFrame(data[["song name", "artist"]].iloc[song])
         # st.table(playlist)
-    with col2:
+    with col4:
         st.header("Your Playlist")
         playlist2 = pd.DataFrame(data[["song name", "artist"]].iloc[song])
 
@@ -159,12 +162,12 @@ with user_input:
 
 with cluster:
     st.header("The Song EcoSystem")
-    col1, col2 = st.columns(2)
+    col5, col6 = st.columns(2)
     user_cluster = cluster_model.predict(np.array(song_input).reshape(1,-1))
-    col1.write("You may also like songs from cluster {}".format(user_cluster[0]))
-    col1.plotly_chart(cluster_image)
+    col5.write("You may also like songs from cluster {}".format(user_cluster[0]))
+    col5.plotly_chart(cluster_image)
     user_cluster_df = data[data['cluster'] == user_cluster[0]]
-    col2.table(user_cluster_df[['song name', 'artist']][:playlist_length])
+    col6.table(user_cluster_df[['song name', 'artist']][:playlist_length])
 
 
 
